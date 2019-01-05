@@ -5,7 +5,7 @@ import {UserService} from "../shared/services/user.service";
 @Component({
 	template: require("./splash.component.html")
 })
-
+// no selector because it will be its own page
 export class SplashComponent implements OnInit{
 	users: User[] = [];
 
@@ -14,6 +14,7 @@ export class SplashComponent implements OnInit{
 
 	ngOnInit():void {
 		this.userService.getAllUsers()
+			// if you don't subscribe it didn't happen
 			.subscribe(users => this.users = users);
 	}
 
